@@ -8,7 +8,14 @@ import datetime
 
 app = Flask(__name__)
 CORS(app)
+# on server production
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://pounpet:BBLj5g^,LW@localhost:3306/pounpekp_flask01'
+# case of SQLITE in temp directory
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/flask01.db'
+
+# local server development
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/flask01'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
